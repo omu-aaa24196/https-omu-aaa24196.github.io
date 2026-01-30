@@ -110,6 +110,34 @@
             // 実行
             loadShelters();
 
+　　　　　　 /* =========================
+                 凡例（レジェンド）
+            ========================= */
+
+            const legend = L.control({ position: 'bottomright' });
+
+            legend.onAdd = function (map) {
+                const div = L.DomUtil.create('div', 'legend-box');
+
+                div.innerHTML = `
+                   <div style="
+                      background: white;
+                      padding: 10px 14px;
+                      border-radius: 8px;
+                      box-shadow: 0 0 6px rgba(0,0,0,0.3);
+                      font-size: 14px;
+                      line-height: 1.6;
+                   ">
+                      <b>凡例</b><br>
+                      <span style="font-size:18px;">🔵</span> 避難所
+                    </div>
+                 `;
+
+                 return div;
+            };
+
+            legend.addTo(map);
+
 
             //スケールバー
             L.control.scale().addTo(map);
